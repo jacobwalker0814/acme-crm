@@ -1,8 +1,13 @@
 Customer Paradigm Candidate Project
 ===================================
 
+# Requirements
+Requires PHP >= 5.3
+
 # Installation
+
 ## Install Dependencies
+
 Install Composer if necessary
     curl -sS https://getcomposer.org/installer | php
 
@@ -10,6 +15,7 @@ Run composer install
     php -f composer.phar install
 
 ## Configure Database
+
 Copy the file `config/config.example.ini` to `config/config.ini` then change the database connection credentials.
 
 Create a database matching what you specified in the configuration file and grant the appropriate permissions. For example you might run:

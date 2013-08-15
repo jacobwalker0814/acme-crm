@@ -1,14 +1,11 @@
 <?PHP
 
-// Use composer's autoloader
-require_once("vendor/autoload.php");
+// Load the application
+require_once "app.php";
 
 ini_set("display_errors", true);
 
-// Import namespaced contact class so "new Contact" lines below will work
-use \Acme\CRM\Models\Contact;
-
-$contact = new Contact();
+$contact = $app->getModel("Contact");
 
 $contact->load(1);
 print_r($contact->getData()); 
@@ -41,7 +38,7 @@ print_r($contact->load(1)->getData());
 // name => John Doe the 2nd
 // email => john@doe2.com
 
-$newContact = new Contact();
+$newContact = $app->getModel("Contact");
 $newContact->setData(array(
     "name" => "Gilbert Barber",
     "email" => "gilbTheparrot@gmail.com"
