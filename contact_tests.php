@@ -1,7 +1,12 @@
 <?PHP
-require_once("AbstractModel.php");
-require_once("Contact.php");
+
+// Use composer's autoloader
+require_once("vendor/autoload.php");
+
 ini_set("display_errors", true);
+
+// Import namespaced contact class so "new Contact" lines below will work
+use \Acme\CRM\Models\Contact;
 
 $contact = new Contact();
 

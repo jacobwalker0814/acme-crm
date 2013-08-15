@@ -1,6 +1,14 @@
 Customer Paradigm Candidate Project
 ===================================
 
+# Installation
+
+Install Composer if necessary
+    curl -sS https://getcomposer.org/installer | php
+
+Run composer install
+    php -f composer.phar install
+
 
 ### Part I. Abstract Model
 
