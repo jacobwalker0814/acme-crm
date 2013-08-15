@@ -2,13 +2,22 @@ Customer Paradigm Candidate Project
 ===================================
 
 # Installation
-
+## Install Dependencies
 Install Composer if necessary
     curl -sS https://getcomposer.org/installer | php
 
 Run composer install
     php -f composer.phar install
 
+## Configure Database
+Copy the file `config/config.example.ini` to `config/config.ini` then change the database connection credentials.
+
+Create a database matching what you specified in the configuration file and grant the appropriate permissions. For example you might run:
+
+    CREATE DATABASE acme_crm;
+    GRANT ALL ON acme_crm.* TO 'acme_user'@localhost IDENTIFIED BY 'acme_password';
+
+Next source the file `contacts.sql` into the new database.
 
 ### Part I. Abstract Model
 
