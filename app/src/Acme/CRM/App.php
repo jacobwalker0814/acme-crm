@@ -2,7 +2,7 @@
 
 namespace Acme\CRM;
 
-class App
+class App extends \Bullet\App
 {
     protected $connection;
 
@@ -19,6 +19,8 @@ class App
         $config = parse_ini_file($config_path);
 
         $this->connection = new \PDO("mysql:dbname={$config['database']};host={$config['host']}", $config['username'], $config['password']);
+
+        parent::__construct();
     }
 
     /**

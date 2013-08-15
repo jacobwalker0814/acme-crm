@@ -1,7 +1,7 @@
 <?PHP
 
 // Load the application
-require_once "app.php";
+require_once "app/app.php";
 
 ini_set("display_errors", true);
 

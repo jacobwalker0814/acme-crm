@@ -1,5 +1,8 @@
 {
+    "require": {
+        "vlucas/bulletphp": "*"
+    },
     "autoload": {
-        "psr-0": {"Acme\\": "src/"}
+        "psr-0": {"Acme\\": "app/src/"}
     }
 }
