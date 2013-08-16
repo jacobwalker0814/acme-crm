@@ -4,7 +4,8 @@
         <ul class="nav nav-list">
             <li class="nav-header">Current Contacts</li>
             <?php foreach($contacts as $contact) { ?>
-                <li><a href="/myapp/contact/view/<?php echo $contact->getData("id"); ?>"><?php echo $contact->getData("name"); ?></a></li>
+                <?php $class = isset($current_contact) && $contact->getData("id") == $current_contact->getData("id") ? "active" : ""; ?>
+                <li class="<?php echo $class; ?>"><a href="/myapp/contact/view/<?php echo $contact->getData("id"); ?>"><?php echo $contact->getData("name"); ?></a></li>
             <?php } ?>
         </ul>
     </div>
