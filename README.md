@@ -3,7 +3,7 @@ Acme Company CRM
 
 ## About
 
-This application was developed as part of a job interview development test. It is a Customer Relationship Management system that allows you to manage a list of contacts. It uses an Active Record class `\Acme\CRM\Models\AbstractModel` built to the test's spec. The application logic is handled in the [Bullet PHP Microframework](http://bulletphp.com). The front end uses [HTML5 Boilerplat](http://html5boilerplate.com/) and [Twitter Bootstrap](http://getbootstrap.com/2.3.2/).
+This application was developed as part of a job interview development test. It is a Customer Relationship Management system that allows you to manage a list of contacts. It uses an Active Record class `\Acme\CRM\Models\AbstractModel` built to the test's spec. The application logic is handled in the [Bullet PHP Microframework](http://bulletphp.com). The front end uses [HTML5 Boilerplate](http://html5boilerplate.com/) and [Twitter Bootstrap](http://getbootstrap.com/2.3.2/).
 
 ## Requirements
 
