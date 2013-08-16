@@ -42,25 +42,20 @@ class App extends \Bullet\App
     }
 
     /**
-     * Factory function to get a database injected model class
+     * Access function to return a factory object for a specific model class
      *
      * @param string $class The name of the model assuming \Acme\CRM\Models
      *                      will be prepended
      *
-     * @return \Acme\CRM\Models\AbstractModel
+     * @return \Acme\CRM\Models\Factory
      */
-    public function getModel($class)
+    public function getFactory($class)
     {
-        $class = "\\Acme\\CRM\\Models\\{$class}";
-        if (!class_exists($class)) {
-            throw new \LogicException("Requested model class {$class} does not exist.");
-        }
-
-        return new $class($this->connection);
+        return new Models\Factory($this->connection, $class);
     }
 
     public function getView($file)
     {
-        return $this->template($file)->set(array("helper" => new ViewHelper($this)));
+        return $this->template($file)->set("helper", new ViewHelper($this));
     }
 }

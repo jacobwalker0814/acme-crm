@@ -5,7 +5,7 @@ require_once "app/app.php";
 
 ini_set("display_errors", true);
 
-$contact = $app->getModel("Contact");
+$contact = $app->getFactory("Contact")->model();
 
 $contact->load(1);
 print_r($contact->getData()); 
@@ -38,7 +38,7 @@ print_r($contact->load(1)->getData());
 // name => John Doe the 2nd
 // email => john@doe2.com
 
-$newContact = $app->getModel("Contact");
+$newContact = $app->getFactory("Contact")->model();
 $newContact->setData(array(
     "name" => "Gilbert Barber",
     "email" => "gilbTheparrot@gmail.com"
