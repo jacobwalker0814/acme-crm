@@ -4,7 +4,19 @@ namespace Acme\CRM;
 
 class App extends \Bullet\App
 {
+    /**
+     * Database connection.
+     *
+     * @var \PDO
+     */
     protected $connection;
+
+    /**
+     * Helper object for views
+     *
+     * @var ViewHelper
+     */
+    protected $view_helper;
 
     /**
      * Set up the environment of the app by passing in the path to the config
@@ -47,15 +59,8 @@ class App extends \Bullet\App
         return new $class($this->connection);
     }
 
-    /**
-     * Returns an html class to add to a nav link for the given route
-     *
-     * @param string $route
-     *
-     * @return string
-     */
-    public function getNavClass($route)
+    public function getView($file)
     {
-        return $route == $this->request()->url() ? "active" : "";
+        return $this->template($file)->set(array("helper" => new ViewHelper($this)));
     }
 }

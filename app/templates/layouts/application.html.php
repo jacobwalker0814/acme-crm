@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="/web/css/bootstrap.min.css">
         <style>
             body {
+                /* Has to be done before including responsive css */
                 padding-top: 40px;
             }
         </style>
@@ -36,10 +37,10 @@
                     <a class="brand" href="/">Acme Co CRM</a>
                     <div class="nav-collapse collapse pull-right">
                         <ul class="nav">
-                            <li class="<?php echo $app->getNavClass("/"); ?>">
+                            <li class="<?php echo $helper->getNavClass("/"); ?>">
                                 <a href="/"><i class="icon-home"></i> Home</a>
                             </li>
-                            <li class="<?php echo $app->getNavClass("myapp/contact"); ?>">
+                            <li class="<?php echo $helper->getNavClass("myapp/contact"); ?>">
                                 <a href="/myapp/contact"><i class="icon-user"></i> Contacts</a>
                             </li>
                         </ul>
