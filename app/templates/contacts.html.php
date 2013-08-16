@@ -39,6 +39,7 @@
             </div>
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Save</button>
+                <a href="/contacts/<?php echo $current_contact->getData("id"); ?>/delete" class="btn btn-danger"><i class="icon-fire icon-white"></i> Delete</a>
             </div>
         </form>
         <?php } else { ?>

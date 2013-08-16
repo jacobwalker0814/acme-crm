@@ -40,5 +40,24 @@ $app->path("contacts", function($request) use($app) {
             return $view;
         });
 
+        // GET /contacts/n/delete : Delete current contact
+        // I would rather use HTTP DELETE for this but that isn't supported
+        // directly in forms and I needed to wrap things up
+        $app->path("delete", function($request) use($app, $view, $contact, $factory) {
+            try {
+                $contact->delete();
+                $view->set("success", "Contact deleted.");
+            } catch(\Exception $e) {
+                $view->set("error", "There was an error deleting the contact.");
+            }
+
+            // Update the list of all contacts with our changes
+            $view->set("contacts", $factory->findAll());
+
+            // Blank out the current contact so we go back to the general form
+            $view->set("current_contact", null);
+
+            return $view;
+        });
     });
 });
