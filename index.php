@@ -1,9 +1,7 @@
 <?php
 
+// Include the core application
 require_once "app/app.php";
 
-$app->path("/", function($request) use($app) {
-    return "Hello, world!";
-});
-
+// Handle the request
 echo $app->run(new \Bullet\Request());

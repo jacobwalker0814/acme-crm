@@ -20,7 +20,13 @@ class App extends \Bullet\App
 
         $this->connection = new \PDO("mysql:dbname={$config['database']};host={$config['host']}", $config['username'], $config['password']);
 
-        parent::__construct();
+        parent::__construct(array(
+            'template' => array(
+                'path'         => ACME_CRM_APP_DIR . '/templates/',
+                'path_layouts' => ACME_CRM_APP_DIR . '/templates/layouts/',
+                'auto_layout'  => 'application'
+            )
+        ));
     }
 
     /**
@@ -39,5 +45,17 @@ class App extends \Bullet\App
         }
 
         return new $class($this->connection);
+    }
+
+    /**
+     * Returns an html class to add to a nav link for the given route
+     *
+     * @param string $route
+     *
+     * @return string
+     */
+    public function getNavClass($route)
+    {
+        return $route == $this->request()->url() ? "active" : "";
     }
 }
