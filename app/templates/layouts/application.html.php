@@ -40,8 +40,8 @@
                             <li class="<?php echo $helper->getNavClass("/"); ?>">
                                 <a href="/"><i class="icon-home"></i> Home</a>
                             </li>
-                            <li class="<?php echo $helper->getNavClass("myapp/contact"); ?>">
-                                <a href="/myapp/contact"><i class="icon-user"></i> Contacts</a>
+                            <li class="<?php echo $helper->getNavClass("contacts"); ?>">
+                                <a href="/contacts"><i class="icon-user"></i> Contacts</a>
                             </li>
                         </ul>
                     </div>
