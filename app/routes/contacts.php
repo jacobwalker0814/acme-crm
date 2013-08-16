@@ -29,15 +29,12 @@ $app->path("contacts", function($request) use($app) {
             $contact->setData("email", $request->post("input-email"));
             try {
                 $contact->save();
-                $view->set("success", "Contact saved.");
+                $response = new \Bullet\Response();
+                return $response->redirect("/contacts/" . $contact->getData("id"));
             } catch(\Exception $e) {
                 $view->set("error", "There was an error saving your contact.");
+                return $view;
             }
-
-            // Update the list of all contacts with our changes
-            $view->set("contacts", $factory->findAll());
-
-            return $view;
         });
 
         // GET /contacts/n/delete : Delete current contact
@@ -46,18 +43,12 @@ $app->path("contacts", function($request) use($app) {
         $app->path("delete", function($request) use($app, $view, $contact, $factory) {
             try {
                 $contact->delete();
-                $view->set("success", "Contact deleted.");
+                $response = new \Bullet\Response();
+                return $response->redirect("/contacts/");
             } catch(\Exception $e) {
                 $view->set("error", "There was an error deleting the contact.");
+                return $view;
             }
-
-            // Update the list of all contacts with our changes
-            $view->set("contacts", $factory->findAll());
-
-            // Blank out the current contact so we go back to the general form
-            $view->set("current_contact", null);
-
-            return $view;
         });
     });
 });

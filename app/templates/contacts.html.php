@@ -11,12 +11,6 @@
         </ul>
     </div>
     <div class="well span9">
-        <?php if (isset($success)) { ?>
-        <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <?php echo $success; ?>
-        </div>
-        <?php } ?>
         <?php if (isset($error)) { ?>
         <div class="alert alert-error">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -39,7 +33,9 @@
             </div>
             <div class="form-actions">
                 <button type="submit" class="btn btn-primary">Save</button>
+                <?php if ($current_contact->getData("id")) { ?>
                 <a href="/contacts/<?php echo $current_contact->getData("id"); ?>/delete" class="btn btn-danger"><i class="icon-fire icon-white"></i> Delete</a>
+                <?php } ?>
             </div>
         </form>
         <?php } else { ?>
